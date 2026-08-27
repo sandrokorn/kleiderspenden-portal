@@ -1,6 +1,6 @@
 # Kleiderspenden-Registrierung – Web-Portal
 
-**Live-Demo:** [Hier Klicken - um die Webseite aufzurufen](https://sandrokorn.github.io/kleiderspenden-portal/)
+**Live-Demo:** [Webseite im Browser öffnen](https://sandrokorn.github.io/kleiderspenden-portal/)
 
 **Projekt:** Öffentliches Portal zur Registrierung von Kleiderspenden  
 **Technologien:** HTML5, CSS3, Bootstrap 5, Vanilla JavaScript  
