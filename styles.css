@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap");
+
+/* --- Globale Variablen (Design-Tokens) --- */
+
+:root {
+  --brand-dark: #0f2a2e;
+  --brand-mid: #1b5b5f;
+  --brand-light: #e6f2f1;
+  --accent: #f4b73c;
+  --text: #1b1b1b;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfb 60%, #ffffff 100%);
+}
+
+/* --- Layout-Komponenten & Struktur --- */
+
+.site-header {
+  background: radial-gradient(circle at top left, rgba(244, 183, 60, 0.25), transparent 55%),
+    linear-gradient(120deg, var(--brand-dark), var(--brand-mid));
+  color: white;
+}
+
+.navbar {
+  background: transparent;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  fill: var(--accent);
+  stroke: white;
+  stroke-width: 2;
+}
+
+.hero {
+  padding: 4rem 0 5rem;
+}
+
+.hero .lead {
+  max-width: 40rem;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: var(--brand-light);
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mission-list li {
+  padding-left: 1.8rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.mission-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--brand-mid);
+  font-weight: bold;
+}
+
+.info-panel {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(15, 42, 46, 0.12);
+}
+
+.side-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgba(15, 42, 46, 0.12);
+  margin-top: 3.5rem;
+}
+
+.confirmation {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(15, 42, 46, 0.16);
+  margin-top: 3.5rem;
+}
+
+.btn-primary {
+  background: var(--brand-mid);
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #134448;
+}
+
+.site-footer {
+  background: var(--brand-dark);
+  color: white;
+  padding: 2rem 0;
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .hero-card,
+  .side-card,
+  .confirmation {
+    margin-top: 2rem;
+  }
+}

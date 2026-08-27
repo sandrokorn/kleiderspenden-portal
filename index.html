@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kleiderspenden-Portal | Verein KleiderHilfe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+<!-- --- Globale Navigation & Header --- -->
+
+    <header class="site-header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+            <svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+              <circle cx="32" cy="32" r="30" />
+              <path d="M18 30l14-12 14 12-6 4v14H24V34z" />
+              <path d="M26 40h12" />
+            </svg>
+            <span>Verein KleiderHilfe</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-expanded="false"
+            aria-label="Navigation umschalten"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
+              <li class="nav-item"><a class="nav-link" href="#spende">Spende registrieren</a></li>
+              <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+              <li class="nav-item ms-lg-3">
+                <select id="languageSelect" class="form-select form-select-sm mt-1 bg-dark text-white border-secondary" aria-label="Sprachauswahl">
+                  <option value="de">Deutsch (LTR)</option>
+                  <option value="ar">Arabisch (RTL)</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section id="top" class="hero">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <p class="eyebrow">Kleiderspenden-Registrierung</p>
+              <h1 class="display-5 fw-bold">Wähle selbst, welche Krisenregion unterstützt wird.</h1>
+              <p class="lead">
+                Gemeinsam sorgen wir dafür, dass Kleiderspenden schnell und zielgerichtet dort ankommen, wo sie
+                aktuell am dringendsten gebraucht werden.
+              </p>
+              <div class="d-flex flex-wrap gap-3">
+                <a class="btn btn-light btn-lg" href="#spende">Jetzt registrieren</a>
+                <a class="btn btn-outline-light btn-lg" href="#mission">Mehr erfahren</a>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-card">
+                <h2 class="h5">Geschäftsstelle</h2>
+                <p class="mb-1">Musterstraße 12</p>
+                <p class="mb-1">04109 Leipzig</p>
+                <p class="mb-0">Mo–Fr: 09:00–18:00 Uhr</p>
+                <hr />
+                <p class="mb-0"><strong>PLZ-Region:</strong> 04xxx</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+<!-- --- Hauptinhaltsbereich & Registrierungsformular --- -->
+
+    <main>
+      <section id="mission" class="section">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <h2 class="section-title">Unsere Mission</h2>
+              <p>
+                Als gemeinnütziger Verein koordinieren wir Kleiderspenden, organisieren Transporte und bündeln
+                Hilfsgüter für akute Krisensituationen. Das Portal macht die Registrierung transparent und einfach.
+              </p>
+              <ul class="list-unstyled mission-list">
+                <li>Digitale Registrierung in weniger als 3 Minuten</li>
+                <li>Klare Wahl der Krisenregion</li>
+                <li>Abholung oder persönliche Übergabe möglich</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-panel">
+                <h3 class="h5">So funktioniert es</h3>
+                <ol class="ps-3">
+                  <li>Übergabeart auswählen</li>
+                  <li>Kleidungsart &amp; Krisenregion wählen</li>
+                  <li>Abholadresse (falls nötig) angeben</li>
+                  <li>Bestätigung erhalten</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="spende" class="section section-alt">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <h2 class="section-title">Spende registrieren</h2>
+              <p class="mb-4">Bitte fülle das Formular vollständig aus. Pflichtfelder sind markiert.</p>
+              <div id="alert" class="alert alert-danger d-none" role="alert"></div>
+              <form id="donation-form" class="needs-validation" novalidate>
+                <fieldset class="mb-4">
+                  <legend class="h6">Übergabeart *</legend>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="handover"
+                      id="handover-office"
+                      value="Übergabe an der Geschäftsstelle"
+                      checked
+                    />
+                    <label class="form-check-label" for="handover-office">
+                      Übergabe an der Geschäftsstelle
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="handover"
+                      id="handover-pickup"
+                      value="Abholung"
+                    />
+                    <label class="form-check-label" for="handover-pickup">Abholung durch Sammelfahrzeug</label>
+                  </div>
+                </fieldset>
+
+                <div id="address-block" class="mb-4 d-none">
+                  <h3 class="h6">Abholadresse *</h3>
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label" for="street">Straße und Hausnummer</label>
+                      <input class="form-control" type="text" id="street" />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="zip">Postleitzahl</label>
+                      <input class="form-control" type="text" id="zip" inputmode="numeric" placeholder="z. B. 04109" />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="city">Ort</label>
+                      <input class="form-control" type="text" id="city" />
+                    </div>
+                  </div>
+                  <p class="form-text mt-2">Die ersten zwei Ziffern der PLZ müssen mit 04 übereinstimmen.</p>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label" for="clothes">Art der Kleidung *</label>
+                  <select id="clothes" class="form-select" required>
+                    <option value="">Bitte auswählen</option>
+                    <option>Winterjacken &amp; Mäntel</option>
+                    <option>Schuhe &amp; Stiefel</option>
+                    <option>Kinderkleidung</option>
+                    <option>Decken &amp; Schlafsäcke</option>
+                    <option>Alltagskleidung</option>
+                  </select>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label" for="region">Krisenregion *</label>
+                  <select id="region" class="form-select" required>
+                    <option value="">Bitte auswählen</option>
+                    <option>Naher Osten</option>
+                    <option>Osteuropa</option>
+                    <option>Horn von Afrika</option>
+                    <option>Südostasien</option>
+                    <option>Lateinamerika</option>
+                  </select>
+                  <p class="form-text">Auswahlliste mit aktuell priorisierten Krisenregionen.</p>
+                </div>
+
+                <button class="btn btn-primary btn-lg" type="submit">Spende registrieren</button>
+              </form>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="confirmation" id="confirmation" hidden>
+                <h2 class="h4">Registrierung erfolgreich</h2>
+                <p class="mb-4">Vielen Dank! Wir haben deine Kleiderspende mit folgenden Angaben registriert:</p>
+                <dl class="row mb-4" id="confirmation-list"></dl>
+                <button class="btn btn-outline-primary" id="new-entry">Neue Spende erfassen</button>
+              </div>
+              <div class="side-card" id="side-card">
+                <h3 class="h5">Hinweise für Abholungen</h3>
+                <p>
+                  Unsere Sammelfahrzeuge fahren täglich feste Routen. Eine Abholung ist möglich, wenn die ersten
+                  beiden Ziffern der Postleitzahl mit der Geschäftsstelle (04xxx) übereinstimmen.
+                </p>
+                <h3 class="h5">Tablet-Registrierung vor Ort</h3>
+                <p>
+                  Wähle auf dem Tablet bitte die Option „Übergabe an der Geschäftsstelle“. Dann werden nur
+                  Kleidungsart und Krisenregion abgefragt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="kontakt" class="site-footer">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <h2 class="h6 text-uppercase">Kontakt</h2>
+            <p class="mb-1">E-Mail: info@kleiderhilfe-verein.de</p>
+            <p class="mb-0">Telefon: 0123 456789</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h2 class="h6 text-uppercase">Rechtliches</h2>
+            <p class="mb-1"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+            <p class="mb-0">&copy; 2026 Verein KleiderHilfe e. V.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
