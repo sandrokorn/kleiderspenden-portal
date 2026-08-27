@@ -1,5 +1,7 @@
 # Kleiderspenden-Registrierung – Web-Portal
 
+**live-Demo:** [Hier klicken, um zur Webseite zu kommen](https://deine-webseiten-url.de)
+
 **Projekt:** Öffentliches Portal zur Registrierung von Kleiderspenden  
 **Technologien:** HTML5, CSS3, Bootstrap 5, Vanilla JavaScript  
 **Zweck:** Fallstudie im Rahmen des Moduls "Programmierung von Webanwendungsoberflächen"
