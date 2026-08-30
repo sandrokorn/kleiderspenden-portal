@@ -123,7 +123,6 @@
             <div class="col-lg-6">
               <h2 class="section-title">Spende registrieren</h2>
               <p class="mb-4">Bitte fülle das Formular vollständig aus. Pflichtfelder sind markiert.</p>
-              <div id="alert" class="alert alert-danger d-none" role="alert"></div>
               <form id="donation-form" class="needs-validation" novalidate>
                 <fieldset class="mb-4">
                   <legend class="h6">Übergabeart *</legend>
@@ -158,14 +157,17 @@
                     <div class="col-12">
                       <label class="form-label" for="street">Straße und Hausnummer</label>
                       <input class="form-control" type="text" id="street" />
+                      <div class="invalid-feedback">Bitte gib eine Straße und Hausnummer ein.</div>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="zip">Postleitzahl</label>
                       <input class="form-control" type="text" id="zip" inputmode="numeric" placeholder="z. B. 04109" />
+                      <div class="invalid-feedback">Bitte gib eine gültige PLZ ein (exakt 5 Ziffern, beginnend mit 04).</div>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="city">Ort</label>
                       <input class="form-control" type="text" id="city" />
+                      <div class="invalid-feedback">Bitte gib einen Ort ein.</div>
                     </div>
                   </div>
                   <p class="form-text mt-2">Die ersten zwei Ziffern der PLZ müssen mit 04 übereinstimmen.</p>
@@ -181,6 +183,7 @@
                     <option>Decken &amp; Schlafsäcke</option>
                     <option>Alltagskleidung</option>
                   </select>
+                  <div class="invalid-feedback">Bitte wähle eine Kleidungsart aus.</div>
                 </div>
 
                 <div class="mb-4">
@@ -193,6 +196,7 @@
                     <option>Südostasien</option>
                     <option>Lateinamerika</option>
                   </select>
+                  <div class="invalid-feedback">Bitte wähle eine Krisenregion aus.</div>
                   <p class="form-text">Auswahlliste mit aktuell priorisierten Krisenregionen.</p>
                 </div>
 

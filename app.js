@@ -2,7 +2,6 @@
 
 const form = document.getElementById("donation-form");
 const addressBlock = document.getElementById("address-block");
-const alertBox = document.getElementById("alert");
 const confirmation = document.getElementById("confirmation");
 const confirmationList = document.getElementById("confirmation-list");
 const sideCard = document.getElementById("side-card");
@@ -20,16 +19,6 @@ const languageSelect = document.getElementById('languageSelect');
 
 // PLZ-Präfix der Geschäftsstelle (Leipzig)
 const HQ_ZIP_PREFIX = "04";
-
-const showAlert = (message) => {
-  alertBox.textContent = message;
-  alertBox.classList.remove("d-none");
-};
-
-const clearAlert = () => {
-  alertBox.textContent = "";
-  alertBox.classList.add("d-none");
-};
 
 const toggleAddressBlock = () => {
   if (handoverPickup.checked) {
@@ -107,29 +96,29 @@ handoverPickup.addEventListener("change", toggleAddressBlock);
 // --- Formular-Validierung & State Management ---
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  clearAlert();
+  event.preventDefault(); // Verhindert das Neuladen der Seite
 
-  if (!clothesSelect.value || !regionSelect.value) {
-    showAlert("Bitte wähle eine Kleidungsart und eine Krisenregion aus.");
-    return;
-  }
+  // 1. Custom-Validation für die PLZ vorab zurücksetzen
+  zipInput.setCustomValidity("");
 
-  if (handoverPickup.checked) {
-    if (!streetInput.value || !zipInput.value || !cityInput.value) {
-      showAlert("Bitte fülle die vollständige Abholadresse aus.");
-      return;
-    }
-
+  // 2. Benutzerdefinierte Regex-Prüfung für die PLZ (nur bei Abholung)
+  if (handoverPickup.checked && zipInput.value) {
     const zipRegex = new RegExp(`^${HQ_ZIP_PREFIX}\\d{3}$`);
-    
     if (!zipRegex.test(zipInput.value)) {
-      showAlert(
-        `Fehler: Die Postleitzahl muss exakt 5 Ziffern lang sein und mit ${HQ_ZIP_PREFIX} beginnen (z.B. 04109).`
-      );
-      return;
+      // Zwingt das PLZ-Feld in den "invalid"-Status, auch wenn es ausgefüllt ist!
+      zipInput.setCustomValidity("Ungültige Postleitzahl"); 
     }
   }
+
+  // 3. Die eigentliche Bootstrap-Validierung auslösen
+  if (!form.checkValidity()) {
+    event.stopPropagation();
+    form.classList.add("was-validated"); // Zeigt die roten Rahmen und invalid-feedback Texte an
+    return; // Abbruch des Formularversands
+  }
+
+  // 4. Wenn alles gültig ist: Validierungs-Klasse für den nächsten Durchlauf entfernen
+  form.classList.remove("was-validated");
 
   const { date, time } = formatDateTime();
   const handover = handoverPickup.checked
@@ -158,8 +147,8 @@ form.addEventListener("submit", (event) => {
 newEntryBtn.addEventListener("click", () => {
   confirmation.hidden = true;
   sideCard.hidden = false;
-  clearAlert();
   form.scrollIntoView({ behavior: "smooth" });
+  form.classList.remove("was-validated");
 });
 
 toggleAddressBlock();
