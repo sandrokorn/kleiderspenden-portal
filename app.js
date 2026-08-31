@@ -15,7 +15,7 @@ const zipInput = document.getElementById("zip");
 const cityInput = document.getElementById("city");
 const clothesSelect = document.getElementById("clothes");
 const regionSelect = document.getElementById("region");
-const languageSelect = document.getElementById('languageSelect');
+const languageSelect = document.getElementById("languageSelect");
 
 // PLZ-Präfix der Geschäftsstelle (Leipzig)
 const HQ_ZIP_PREFIX = "04";
@@ -79,13 +79,13 @@ const buildConfirmation = (data) => {
 // --- Event-Listener & UI ---
 
 if (languageSelect) {
-  languageSelect.addEventListener('change', function() {
-    if (this.value === 'ar') {
-      document.documentElement.setAttribute('dir', 'rtl');
-      document.documentElement.setAttribute('lang', 'ar');
+  languageSelect.addEventListener("change", function() {
+    if (this.value === "ar") {
+      document.documentElement.setAttribute("dir", "rtl");
+      document.documentElement.setAttribute("lang", "ar");
     } else {
-      document.documentElement.setAttribute('dir', 'ltr');
-      document.documentElement.setAttribute('lang', 'de');
+      document.documentElement.setAttribute("dir", "ltr");
+      document.documentElement.setAttribute("lang", "de");
     }
   });
 }
